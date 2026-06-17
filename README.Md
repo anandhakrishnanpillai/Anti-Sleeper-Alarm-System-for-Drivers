@@ -1,4 +1,4 @@
-Anti Sleeper Alarm System for Drivers
+uAnti Sleeper Alarm System for Drivers
 
 Overview
 
@@ -27,3 +27,32 @@ Applications
 - Cars
 - Trucks
 - Long distance driving
+
+Code of This Project
+
+<arduino.h>
+void setup()
+{
+pinMode(SENSE, INPUT); // Attach the Eye Blink Sensor signal pin 
+pinMode(LED_BUILTIN, OUTPUT); // 13+ // Buzzer Attached 
+}
+void loop()
+{
+if(digitalRead(SENSE))
+{
+ digitalWrite(LED_BUILTIN, LOW);
+
+}
+else
+{
+  delay (2000);
+  if(digitalRead(SENSE))
+  {
+ digitalWrite(LED_BUILTIN, LOW);
+ 
+}
+  else
+  digitalWrite(LED_BUILTIN, HIGH);  
+  
+  }
+}
